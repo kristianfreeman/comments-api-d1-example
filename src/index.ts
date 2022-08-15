@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { cors } from 'hono/cors'
 
 interface Comment {
   author: string
@@ -6,6 +7,7 @@ interface Comment {
 }
 
 const app = new Hono()
+app.use('/api/*', cors())
 
 app.get('/api/posts/:slug/comments', async c => {
   const { slug } = c.req.param()
