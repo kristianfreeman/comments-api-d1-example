@@ -4,8 +4,8 @@ import { cors } from 'hono/cors'
 interface Comment {
   author: string
   body: string
-}
 
+}
 const app = new Hono()
 app.use('/api/*', cors())
 
